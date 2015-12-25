@@ -310,9 +310,10 @@ function! s:FindSyntasticExecPath(toolName)
 endfunction
 
 " setting up jshint csslint and jscs if available
-let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
-let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
-let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
+" let g:syntastic_javascript_jshint_exec = s:FindSyntasticExecPath('jshint')
+let g:syntastic_javascript_eslint_exec = s:FindSyntasticExecPath('eslint')
+" let g:syntastic_javascript_jscs_exec = s:FindSyntasticExecPath('jscs')
+" let g:syntastic_css_csslint_exec= s:FindSyntasticExecPath('csslint')
 
 " Enable autochecks
 let g:syntastic_check_on_open=1
@@ -324,7 +325,7 @@ let g:syntastic_always_populate_loc_list = 1
 " check json files with jshint
 let g:syntastic_filetype_map = { "json": "javascript", }
 
-let g:syntastic_javascript_checkers = ["jshint", "jscs"]
+let g:syntastic_javascript_checkers = ["eslint"]
 
 " open quicfix window with all error found
 nmap <silent> <leader>ll :Errors<cr>
@@ -525,7 +526,7 @@ highlight ColorColumn ctermbg=lightGrey
 "set exrc secure
 
 " Set up leader key <leader>, i use default \
-"let mapleader = ','
+let mapleader = ','
 
 " Buffer will be hidden instead of closed when no one display it
 "set hidden
@@ -694,6 +695,7 @@ set showmatch
 " Make < and > match as well
 set matchpairs+=<:>
 
+nmap <leader>. <C-w>
 
 "--------------------------------------------------
 " Wildmenu
